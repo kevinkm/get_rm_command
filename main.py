@@ -5,8 +5,8 @@ import subprocess as subprocess
 
 from builtins import range
 print ('THE PROGRAM JUST FOR NEWBIEs\n')
-(temp1,temp2)= subprocess.getstatusoutput('env|grep ^HOME')
-userpath =  temp2[5:]
+(num1,str1)= subprocess.getstatusoutput('env|grep ^HOME')
+userpath =  str1[5:]
 if os.path.exists( userpath + '/.homeassistant/home-assistant.log' ):
 
 #find the homeassistant successfully
@@ -49,14 +49,15 @@ while a:
         print ('\nYou are abandoned since you can\'t acquaint yourself with what the IP address looks like, Kidding...try again ')
 
 #got datas from home-assistant.log
-f_log=open(hasspath+'home-assistant.log','r')
+getdatas(hasspath + 'home-assistant.log', 'r' )
 
 #create group file
 f_group=open(hasspath+'foxgroup.yaml','a')
 
 #create script file
 f_script=open(hasspath+'foxscript.yaml','a')
-
+for i in range[0,99]:
+    f_script.write(create_script())
 
 #create switch funtion
 def create_script(switch_number, ip_addr, datas):
@@ -70,7 +71,9 @@ def addintogroup(switch_number):
     return 'group_foxswitch:\ngroup_tv:\n  view: false\n  name: TV\n  entities:\n  - script.fox_controls_'+str(
         switch_number)
 
-
+def getdatas(logfile):
+    f_log = open( logfile )
+    f_log
 
 
 

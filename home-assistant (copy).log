@@ -1,0 +1,10 @@
+123
+12345
+123456
+1234567
+
+123
+2017-07-13 19:37:36 INFO (MainThread) [homeassistant.components.switch.broadlink] Press the key you want HASS to learn
+2017-07-13 19:37:46 INFO (MainThread) [homeassistant.components.switch.broadlink] Recieved packet is: 6WomABAHBQcGDAsHBgcFDAoHBgcFBwYMCwcGDAsHBQcGBwUMBgcGBwUGAAA=
+
+12312
