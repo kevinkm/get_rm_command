@@ -5,6 +5,10 @@ and you want to copy some commands to home-assistant you may need this program.
 ~$ wget https://github.com/kevinkm/get_rm_command/blob/master/rm2.py
 ~$ wget https://github.com/kevinkm/get_rm_command/blob/master/configuration.yaml
 ~$ mv -f configuration.yaml your homeassistant directory
+
+visit youtube for HOWTO: https://www.youtube.com/watch?v=AWA15OI-sfw&feature=youtu.be
+
+then.......
+
 ~$ python3 rm2.py
 
-visit youtube for HOWTO:

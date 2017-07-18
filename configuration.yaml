@@ -1,37 +1,58 @@
 homeassistant:
   # Name of the location where Home Assistant is running
-  name: Fox Home
+  name: FOX Home
   # Location required to calculate the time the sun rises and sets
-  latitude: 25.0389
-  longitude: 102.7183
+  latitude: 34.7725
+  longitude: 113.7266
   # Impacts weather/sunrise data (altitude above sea level in meters)
   elevation: 0
   # metric for Metric, imperial for Imperial
   unit_system: metric
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-  time_zone: Asia/Shanghai
+  time_zone: UTC
 
-
-
-###delete this part after finish#####
+###Don't delete this part until you know what it is for#####
 switch:
   - platform: broadlink
     host: 192.168.100.19
     mac: "B4:43:0D:10:04:5A"
-    friendly_name: "example"
+    name: "example"
     timeout: 30
     type: rm2
     switches:
       tv_box:
-        command_on: "abc"
-        command_off: "abc"
-        friendly_name: 'example'
-###delete this part after finish#####
+        command_on: ""
+        command_off: ""
+############################################################
 
 
 #group: !include foxgroup.yaml
 #script: !include foxscript.yaml
 
+
+# Show links to resources in log and frontend
+introduction:
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+http:
+  # Uncomment this to add a password (recommended!)
+  # api_password: PASSWORD
+  # Uncomment this if you are using SSL or running in Docker etc
+  # base_url: example.duckdns.org:8123
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
 
 # Discover some devices automatically
 discovery:
@@ -45,6 +66,12 @@ history:
 # View all events in a logbook
 logbook:
 
+#######receive from broadlink
+logger:
+  default: critical
+  logs:
+    homeassistant.components.switch.broadlink: info
+
 # Track the sun
 sun:
 
@@ -52,14 +79,9 @@ sun:
 sensor:
   platform: yr
 
-#######receive from broadlink
-logger:
-  default: critical
-  logs:
-    homeassistant.components.switch.broadlink: info
-
 # Text to speech
 tts:
   platform: google
 
-automation: !include automations.yaml
+
+automation:

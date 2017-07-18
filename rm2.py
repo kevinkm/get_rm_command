@@ -42,7 +42,7 @@ def check_foxgroup_num():
 # create group funtion
 def ini_group():
     f = open( hasspath + 'foxgroup.yaml', 'a' )
-    a = 'fox_view:\n  view: true\n  name: ' + group_name + '\n  entities:\n  - group.group_foxswitch\ngroup_foxswitch:\n  view: false\n  name: ' + group_name + '\n  entities:\n'
+    a = 'default_view:\n  view: true\n  name: ' + group_name + '\n  entities:\n  - group.group_foxswitch\ngroup_foxswitch:\n  view: false\n  name: ' + group_name + '\n  entities:\n'
     f.write( a )
     f.close()
 
@@ -73,7 +73,7 @@ if not os.path.exists( hasspath + 'foxgroup.yaml' ):
 else:
     print ('\nYou may have group name.\n')
 
-# Get broadlink IP as a var: ip_addr
+# Get broadlink IP as a var: ip_addr n_n_n_n
 
 loop0 = '1'
 f1_log=open('configuration.yaml' )
@@ -83,7 +83,7 @@ while loop0:
     if len( b ) > 0:
         host = ''.join( b )  # CLASS: list to string
         print('\nGet your broadlink ip is: ' + host )
-        ip_addr=host
+        ip_addr = host.replace( '.', '_' )
         loop0 = loop0 in 'a'
 
 
