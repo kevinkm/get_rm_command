@@ -1,3 +1,4 @@
+####Original author: KEVIN.km####
 import os
 import subprocess as subprocess
 import sys
@@ -72,17 +73,30 @@ if not os.path.exists( hasspath + 'foxgroup.yaml' ):
 else:
     print ('\nYou may have group name.\n')
 
-# Enter broadlink IP as a var: ip_addr
-a = 1
-while a:
-    ip = input( "\nTell me your ip address about broadlink rm/rm2/rmpro: " )
-    if re.match( r"^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])$", ip ):
-        ip_addr = ip.replace( '.', '_' )
-        a = 0
-        print( '\nCorrect!\n' )
-    else:
-        print(
-            '\nYou are abandoned since you can\'t acquaint yourself with what the IP address looks like, Kidding...try again ' )
+# Get broadlink IP as a var: ip_addr
+
+loop0 = '1'
+f1_log=open('configuration.yaml' )
+while loop0:
+    loop0 = f1_log.readline()
+    b = re.findall( r'(?<=    host: ).*', loop0 )
+    if len( b ) > 0:
+        host = ''.join( b )  # CLASS: list to string
+        print('\nGet your broadlink ip is: ' + host )
+        ip_addr=host
+        loop0 = loop0 in 'a'
+
+
+# a = 1
+# while a:
+#     ip = input( "\nTell me your ip address about broadlink rm/rm2/rmpro: " )
+#     if re.match( r"^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])$", ip ):
+#         ip_addr = ip.replace( '.', '_' )
+#         a = 0
+#         print( '\nCorrect!\n' )
+#     else:
+#         print(
+#             '\nYou are abandoned since you can\'t acquaint yourself with what the IP address looks like, Kidding...try again ' )
 
 # got datas from home-assistant.log as a var: rm_datas
 if not os.path.exists( hasspath + 'foxgroup.yaml' ):
@@ -111,3 +125,5 @@ f_group.close()
 f_script.close()
 f_log.close()
 print(str(command_count)+ ' commands are done!')
+
+####Original author: KEVIN.km####

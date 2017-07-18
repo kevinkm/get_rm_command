@@ -1,5 +1,5 @@
 The programs is coming from https://github.com/kevinkm/get_rm_command, if you have broadlink rm/rm2/rm pro,
-and you want to build it at homeassistant you may need this program.
+and you want to copy some commands to home-assistant you may need this program.
 
 
 ~$ wget https://github.com/kevinkm/get_rm_command/blob/master/rm2.py
@@ -7,4 +7,4 @@ and you want to build it at homeassistant you may need this program.
 ~$ mv -f configuration.yaml your homeassistant directory
 ~$ python3 rm2.py
 
-visit youtube for HOWTO:hht
+visit youtube for HOWTO:
